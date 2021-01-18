@@ -88,6 +88,18 @@ class LoanController extends Controller
         
     }
 
+    public function getLoanWithSchedules($id)
+    {
+        if(!$id)
+        {
+            return $this->error('loan request is invalid!', '400');
+        }
+        $loan_request = LoanRequest::where('id',$id)->first();
+        $loan_request->schedule = $loan_request->loan_schedules()->get();
+
+        return $this->success("loan with loan schedules",['loan'=>$loan_request]);
+    }
+
     
 
 }

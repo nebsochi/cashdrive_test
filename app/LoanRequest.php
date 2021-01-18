@@ -8,6 +8,11 @@ class LoanRequest extends Model
 {
     protected $guarded = ['id'];
 
+    protected $hidden = [
+        'user_id'
+    ];
+
+
     public function user()
     {
         return $this->belongsTo('App\User');

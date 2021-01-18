@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+
+
 Route::post('user/register','UserController@register');
 
 Route::post('user/login', 'UserController@login');
@@ -25,8 +27,9 @@ Route::post('user/login', 'UserController@login');
 Route::put('loan/{loan_request}/activate', 'LoanController@activateLoan');
 
 Route::middleware('auth:api')->group(function () {
+    
+    Route::get('loan/{id}', 'LoanController@getLoanWithSchedules');
 
-	
     Route::get('card/{reference}', 'UserController@addCard');
 
     Route::post('card', 'UserController@chargeCard');

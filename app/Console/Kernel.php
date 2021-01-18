@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         // ->daily()->timezone('Africa/Lagos');
 
         $schedule->command('chargedueloanswithpenalty:cron')
-        ->everyTwoMinutes()->timezone('Africa/Lagos');
+        ->daily()->timezone('Africa/Lagos');
 
         
     }
